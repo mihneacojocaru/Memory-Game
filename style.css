@@ -1,5 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
+:root {
+  
+    /**
+     * typography
+     */
+    --ff-lobster: "Lobster", sans-serif;
+  
+    --fs-1: 1.875rem;
+    --fs-2: 1.5rem;
+    --fs-3: 1.375rem;
+    --fs-4: 1.125rem;
+    --fs-5: 0.875rem;
+    --fs-6: 0.813rem;
+    --fs-7: 0.75rem;
+  
+    --fw-500: 500;
+    --fw-600: 600;
+    --fw-700: 700;
+  
+  }
+
 * {
     padding: 0;
     margin: 0;
@@ -14,12 +35,13 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: #8A1B21;
-    background: linear-gradient(to bottom left, #DA3845, #8A1B21);
+    background: #008BCB;
+    background: linear-gradient(to bottom left, #008BCB, #09345C);
+    background-size: cover;
 }
 
 ion-icon{
-    font-size: 20px;
+    font-size: var(--fs-5);
     cursor: pointer;
     pointer-events: none;
 }
@@ -37,13 +59,15 @@ ion-icon title{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    top: 2%;
 }
 
 .title h1{
-    font-family:'Lobster', sans-serif;
+    font-family:var(--ff-lobster);
     color: rgb(230, 230, 230);
-    font-size: 3em;
-    padding-bottom: 10px;
+    font-size: var(--fs-1);
+    padding-bottom: 5px;
 }
 
 
@@ -53,6 +77,7 @@ ion-icon title{
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    font-size: var(--fs-5);
 }
 
 .title a{
@@ -64,22 +89,21 @@ ion-icon title{
 .memory-game {
     padding: 2em 0;
     display: grid;
-    grid-template-rows: repeat(4, 150px);
-    grid-template-columns: repeat(4, 107.14px);
-    grid-gap: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: .3rem; 
     perspective: 1800px;
 }
 
 .memory-card {
-    /* width: calc(45% - 10px);
-    height: calc(59.99% - 10px); */
-    width: 100%;
-    height: 100%;
+    height: 100px;
+    width: calc(100px/1.4);
     position: relative;
     transform: scale(1);
     transform-style: preserve-3d;
     transition: transform 0.5s;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+
 }
 
 .memory-card:active {
@@ -122,20 +146,18 @@ footer{
 }
 
 footer h2{
-    font-family: "lobster";
-    font-size: 4em;
+    font-family: var(--ff-lobster);
+    font-size: var(--fs-1);
     padding-bottom: 1em;
 }
 
 footer p{
     padding: .5em 0;
-    font-size: 1.2em;
+    font-size: var(--fs-6);
 }
 
 footer p mark{
-    color: rgb(230, 230, 230);
     padding: 5px 0;
-    background: #DA3845;
 }
 /*
 *
@@ -144,44 +166,86 @@ footer p mark{
 */
 
 
-@media (min-width: 450px){
-    h1{
-        font-size: 3.5em;
+ @media (min-width: 374px){
+    .memory-game {
+        grid-gap: .3rem;
     }
-    .memory-game{
-        grid-template-rows: repeat(4, 7em);
-        grid-template-columns: repeat(4, 5em);
+
+    .memory-card{
+        height: 7em;
+        width: calc(7em/1.4);
+    } 
+}
+ @media (min-width: 424px){
+    .memory-game {
+        grid-gap: .4rem;
+    }
+
+    .memory-card{
+        height: 8.5em;
+        width: calc(8.5em/1.4)
+    } 
+}
+ @media (min-width: 576px){
+    .memory-game {
+        grid-gap: .5rem;
+    }
+
+    .memory-card{
+        height: 10em;
+        width: calc(10em/1.4);
+    } 
+    footer{
+        text-align: left;
+        padding: 0 15%;
     }
 }
-@media (min-width: 576px){
-    h1{
-        font-size: 4em;
+
+ @media (min-width: 768px){
+    .memory-game {
+        grid-gap: .8rem;
     }
-    .memory-game{
-        grid-template-rows: repeat(4, 9em);
-        grid-template-columns: repeat(4, 6.42em);
+
+    .memory-card{
+        height: 12em;
+        width: calc(12em/1.4);
+    } 
+
+    .title{
+        position: inherit;
     }
-}
-@media (min-width: 768px){
-    h1{
-        font-size: 4em;
+
+     .title h1{
+        font-size: 3em;
     }
-    .memory-game{
-        grid-template-rows: repeat(4, 11em);
-        grid-template-columns: repeat(4, 7.85em);
+
+    .title span{
+        font-size: var(--fs-4);
+    } 
+
+    ion-icon{
+        font-size: var(--fs-4);
     }
 
     footer{
+        text-align: left;
         padding: 0 20%;
     }
 
+    footer p {
+        font-size: var(--fs-4);
+    }
 }
-/* @media (min-width: 992px){
-    h1{
-        font-size: 4em;
+ @media (min-width: 992px){
+    .memory-game {
+        grid-gap: 1rem;
     }
-    .memory-game{
-        grid-template-rows: repeat(4, 12.5em);
-        grid-template-columns: repeat(4, 8.92em);
+
+    ion-icon{
+        font-size: var(--fs-3);
     }
-} */
+
+    footer p{
+        font-size: var(--fs-3);
+    }
+}
