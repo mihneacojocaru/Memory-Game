@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #8A1B21;
+    background: linear-gradient(to bottom left, #DA3845, #8A1B21);
+}
+
+ion-icon{
+    font-size: 20px;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+ion-icon title{
+    visibility: hidden;
+}
+
+.info-icon{
+    cursor: pointer;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title h1{
+    font-family:'Lobster', sans-serif;
+    color: rgb(230, 230, 230);
+    font-size: 3em;
+    padding-bottom: 10px;
+}
+
+
+.title span{
+    color: rgb(230, 230, 230);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.title a{
+    color:rgb(230, 230, 230);
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.memory-game {
+    padding: 2em 0;
+    display: grid;
+    grid-template-rows: repeat(4, 150px);
+    grid-template-columns: repeat(4, 107.14px);
+    grid-gap: 1.5rem;
+    perspective: 1800px;
+}
+
+.memory-card {
+    /* width: calc(45% - 10px);
+    height: calc(59.99% - 10px); */
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.memory-card:active {
+    transform: scale(0.97);
+    transition: transform 0.2s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    position: absolute;
+    border-radius: 5px;
+    background: #ffffff;
+    backface-visibility: hidden;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+
+footer{
+    color: rgb(230, 230, 230);
+    position: absolute;
+    inset: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 2em;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+footer h2{
+    font-family: "lobster";
+    font-size: 4em;
+    padding-bottom: 1em;
+}
+
+footer p{
+    padding: .5em 0;
+    font-size: 1.2em;
+}
+
+footer p mark{
+    color: rgb(230, 230, 230);
+    padding: 5px 0;
+    background: #DA3845;
+}
+/*
+*
+*   //+++MEDIA QUERIES
+*
+*/
+
+
+@media (min-width: 450px){
+    h1{
+        font-size: 3.5em;
+    }
+    .memory-game{
+        grid-template-rows: repeat(4, 7em);
+        grid-template-columns: repeat(4, 5em);
+    }
+}
+@media (min-width: 576px){
+    h1{
+        font-size: 4em;
+    }
+    .memory-game{
+        grid-template-rows: repeat(4, 9em);
+        grid-template-columns: repeat(4, 6.42em);
+    }
+}
+@media (min-width: 768px){
+    h1{
+        font-size: 4em;
+    }
+    .memory-game{
+        grid-template-rows: repeat(4, 11em);
+        grid-template-columns: repeat(4, 7.85em);
+    }
+
+    footer{
+        padding: 0 20%;
+    }
+
+}
+/* @media (min-width: 992px){
+    h1{
+        font-size: 4em;
+    }
+    .memory-game{
+        grid-template-rows: repeat(4, 12.5em);
+        grid-template-columns: repeat(4, 8.92em);
+    }
+} */
